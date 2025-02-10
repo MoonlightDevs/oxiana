@@ -1,4 +1,3 @@
-const API_URL = "https://oxiana-backend.onrender.com";
 document.addEventListener("DOMContentLoaded", () => {
 	const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
 	const cartLengthHeader = document.querySelectorAll(".cartLengthHeader");

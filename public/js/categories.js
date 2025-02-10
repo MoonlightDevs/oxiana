@@ -1,4 +1,3 @@
-const API_URL = "https://oxiana-backend.onrender.com";
 
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", () => {
@@ -9,7 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
  * Fetches categories from the backend.
  */
 function loadCategories() {
-	fetch(`${API_URL}/api/categories`)
+	fetch(`${API_URL}/api/categories`,  {
+		method: "GET",
+		credentials: "include", // Ensures cookies and auth headers are sent
+		headers: {
+		  "Content-Type": "application/json",
+		},
+	  })
 		.then((response) => {
 			if (!response.ok) {
 				throw new Error(`HTTP error! Status: ${response.status}`);

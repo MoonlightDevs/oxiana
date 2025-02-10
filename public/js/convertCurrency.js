@@ -1,4 +1,4 @@
-import { apiKey } from "./config.js";
+const apiKey = "12aa671152410fc086416548";
 document.addEventListener("DOMContentLoaded", async function () {
 	const localStorageKey = "selectedCurrency";
 

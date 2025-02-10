@@ -1,4 +1,3 @@
-const API_URL = "https://oxiana-backend.onrender.com";
 document.addEventListener("DOMContentLoaded", () => {
 	document
 		.getElementById("add-to-cart-form")

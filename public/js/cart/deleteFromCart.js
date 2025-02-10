@@ -1,4 +1,3 @@
-const API_URL = "https://oxiana-backend.onrender.com";
 
 document.addEventListener("DOMContentLoaded", () => {
 	const deleteItemButtons = document.querySelectorAll(".delete-item-button");
