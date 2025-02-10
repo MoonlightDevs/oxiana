@@ -47,7 +47,7 @@ export const forgetPassword = async (req, res) => {
 
 	try {
 		const response = await axios.post(
-			`${apiBaseUrl}/api/auth/forgot-password`,
+			`${apiBaseUrl}/auth/forgot-password`,
 			{ email }
 		);
 
@@ -90,7 +90,7 @@ export const resetPassword = async (req, res) => {
 
 	try {
 		const response = await axios.post(
-			`${apiBaseUrl}/api/auth/reset-password/${token}`,
+			`${apiBaseUrl}/auth/reset-password/${token}`,
 			{ password }
 		);
 
@@ -133,7 +133,7 @@ export const handleSignup = async (req, res) => {
 
 	try {
 		const response = await axios.post(
-			`${apiBaseUrl}/api/auth/register`,
+			`${apiBaseUrl}/auth/register`,
 			{ name, email, password },
 			{ headers }
 		);
@@ -177,7 +177,7 @@ export const handleLogin = async (req, res) => {
 
 	try {
 		// Send login request to the backend API
-		const response = await axios.post(`${apiBaseUrl}/api/auth/login`, {
+		const response = await axios.post(`${apiBaseUrl}/auth/login`, {
 			email,
 			password,
 		});
@@ -289,7 +289,7 @@ export const handleVerification = async (req, res) => {
 	try {
 		const response = await axios({
 			method: "GET",
-			url: `${apiBaseUrl}/api/auth/verify-email?token=${token}`,
+			url: `${apiBaseUrl}/auth/verify-email?token=${token}`,
 			withCredentials: true,
 		});
 
