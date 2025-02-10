@@ -1,0 +1,62 @@
+<div
+	class="col-md-3 justify-content-center justify-content-md-end align-items-center <%= screenSmall ?' d-flex d-md-none': 'd-md-flex d-none' %>">
+	<div class="d-flex justify-content-center align-items-center">
+		<%-include("./cartHeader", {screenSmall: false}) %> <% if(user){ %>
+		<div class="dropdown">
+			<a
+				class="text-reset me-3 dropdown-toggle hidden-arrow fs-4"
+				href="#"
+				id="navbarDropdownMenuLink"
+				role="button"
+				data-mdb-dropdown-init
+				aria-expanded="false">
+				<i class="fas fa-bell"></i>
+			</a>
+			<ul
+				class="dropdown-menu dropdown-menu-end"
+				aria-labelledby="navbarDropdownMenuLink">
+				<li><a class="dropdown-item" href="#">Some news</a></li>
+				<li><a class="dropdown-item" href="#">Another news</a></li>
+				<li><a class="dropdown-item" href="#">Something else here</a></li>
+			</ul>
+		</div>
+		<div class="dropdown">
+			<a
+				class="text-reset dropdown-toggle d-flex align-items-center hidden-arrow"
+				href="#"
+				id="navbarDropdownMenuLink"
+				role="button"
+				data-mdb-dropdown-init
+				aria-expanded="false">
+				<i class="fa fa-user-circle fs-4 me-1"></i>
+				<span class="text-muted"><%= user.name %></span>
+			</a>
+			<ul
+				class="dropdown-menu dropdown-menu-end"
+				aria-labelledby="navbarDropdownMenuLink">
+				<li><a class="dropdown-item" href="/user">My profile</a></li>
+				<li><a class="dropdown-item" href="#">Settings</a></li>
+				<li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
+			</ul>
+		</div>
+		<% }else{ %>
+		<div class="dropdown">
+			<a
+				class="text-reset dropdown-toggle d-flex align-items-center hidden-arrow"
+				href="#"
+				id="navbarDropdownMenuLink"
+				role="button"
+				data-mdb-dropdown-init
+				aria-expanded="false">
+				<i class="fa fa-user-circle fs-3"></i><span class="ms-2">Sign in</span>
+			</a>
+			<ul
+				class="dropdown-menu dropdown-menu-end"
+				aria-labelledby="navbarDropdownMenuLink">
+				<li><a class="dropdown-item" href="/auth/login">Sign in</a></li>
+				<li><a class="dropdown-item" href="/auth/signup">Create Account</a></li>
+			</ul>
+		</div>
+		<% } %>
+	</div>
+</div>

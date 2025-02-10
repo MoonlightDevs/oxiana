@@ -1,0 +1,64 @@
+<div class="me-3">
+	<a
+		data-mdb-dropdown-init
+		class="nav-link dropdown-toggle hidden-arrow"
+		href="#"
+		id="navbarDropdown"
+		role="button"
+		data-mdb-toggle="dropdown"
+		aria-expanded="false">
+		<i class="fas fa-shopping-cart fs-4 mt-1"></i>
+		<span
+			class="badge rounded-pill badge-notification bg-danger cartLengthHeader">
+			<%= navbarCart.items && navbarCart.items.length > 0 ? navbarCart.items.length : '' %>
+		</span>
+	</a>
+	<div
+		class="dropdown-menu col-12 col-lg-6 mt-0"
+		aria-labelledby="navbarDropdown"
+		style="border-top-left-radius: 0; border-top-right-radius: 0">
+		<% if(navbarCart.items && navbarCart.totalItems !== 0){ %>
+		<div class="container cart-in-header">
+			<div class="my-4 p-3 d-flex justify-content-start overflow-x-scroll">
+				<% navbarCart.items.forEach(item => { %>
+				<div class="col-9 col-lg-6 mb-3 mb-lg-0 border-end">
+					<div class="d-flex justify-content-start align-items-center">
+						<img class="img-fluid w-50" loading="lazy" src="./images/product-9.jpg" alt="<%= item.product.name %> Image" />
+						<div class="">
+							<h5><%= item.product.name %></h5>
+							<div class="d-flex flex-column">
+								<p class="p-0 m-0"><strong>Quantity: </strong><%= item.quantity %></p>
+								<p class="p-0 m-0"><strong>Price: </strong><%= item.price%> AFN</p>
+								<p class="p-0 m-0"><strong>Total Price: </strong>
+									<span class="productTotalPrice"
+										><%= item.total.toFixed(2) %>
+									</span>AFN</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<% }) %>
+			</div>
+			<div class="p-2 d-flex justify-content-between">
+				<div class="d-flex flex-column gap-1">
+					<h5>Cart Summary</h5>
+					<span>Total Cart Items: <b><%=navbarCart.totalItems %></b></span>
+					<span>Total Cart Price: <b><%= navbarCart.totalPrice.toFixed(2) %></b></span>
+				</div>
+				<div>
+					<a href="/cart" class="btn btn-sm btn-warning fw-bold">View Cart</a>
+				</div>
+			</div>
+		</div>
+		<% }else{ %>
+		<div class="container">
+			<div
+				class="d-flex flex-column gap-5 justify-content-center align-items-center text-center py-5">
+				<h3>The Cart is Empty!</h3>
+				<img src="/images/7612.jpg" class="img-fluid" width="280" alt="">
+				<a href="/products" class="btn btn-lg px-3 fw-bold btn-primary">Continue Shopping</a>
+			</div>
+		</div>
+		<% } %>
+	</div>
+</div>

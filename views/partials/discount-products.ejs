@@ -1,0 +1,234 @@
+<div class="col-12 my-4">
+	<div class="col">
+		<div class="d-flex align-items-center">
+			<button id="leftArrow" class="btn btn-info rounded-circle me-2" disabled>
+				<i class="fas fa-chevron-left"></i>
+			</button>
+
+			<div
+				id="categorySlider"
+				class="d-flex overflow-scroll"
+				style="width: 100%; scroll-behavior: smooth">
+				<div class="d-flex flex-nowrap gap-5">
+					<% for (let i=0; i<9; i++) { %> <%-
+					include('../partials/product-card', { product: products[0] }) %> <% };
+					%>
+				</div>
+			</div>
+
+			<!-- Right Arrow -->
+			<button id="rightArrow" class="btn btn-info rounded-circle ms-2">
+				<i class="fas fa-chevron-right"></i>
+			</button>
+		</div>
+	</div>
+</div>
+<header class="mt-5 pt-2">
+			<nav
+				class="navbar navbar-expand-lg navbar-light fixed-top z-1 bg-body-tertiary px-0 px-lg-5">
+				<div class="container-fluid p-lg-0 px-sm-3">
+					<!-- Toggle button -->
+					<div class="d-flex align-items-center justify-content-center">
+						<a class="navbar-brand" href="#">
+							<img
+								src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+								height="20"
+								alt="MDB Logo"
+								loading="lazy" />
+						</a>
+						<a class="custom-trigger-button" id="customOpenOffcanvas">
+							<i class="fas fa-bars fs-5 mt-1 text-dark"></i>
+						</a>
+						<!-- Trigger Button -->
+					</div>
+
+					<!-- Collapsible wrapper -->
+					<div class="d-none d-lg-block">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+							<li class="nav-item dropdown dropdown-hover position-static">
+								<a
+									data-mdb-dropdown-init
+									class="nav-link dropdown-toggle"
+									href="#"
+									id="navbarDropdown"
+									role="button"
+									data-mdb-toggle="dropdown"
+									aria-expanded="false">
+									Catelog
+								</a>
+								
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">How it works</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Pricing</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Blog</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Services</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Need Help?</a>
+							</li>
+						</ul>
+					</div>
+
+					<% if (user){ %>
+
+					<ul
+						class="d-flex justify-content-center align-items-center gap-3 p-0 m-0">
+						<li class="nav-link">
+							<a href="/cart" class="text-dark cart-icon">
+								<i class="fa fa-shopping-cart fs-4"></i
+								><span
+									id="cartLengthHeader"
+									class="badge rounded-pill badge-notification bg-danger"></span>
+							</a>
+						</li>
+						<li class="nav-link">
+							<a href="" class="text-dark">
+								<i class="fa fa-user-circle fs-4"></i>
+								<span><%= user.name %></span>
+							</a>
+						</li>
+					</ul>
+
+					<!-- Avatar -->
+
+					<% }else{ %>
+
+					<% } %>
+				</div>
+				<!-- Container wrapper -->
+			</nav>
+			<nav
+				class="container-fluid navbar fixed-bottom bg-body d-block d-lg-none bottom-0">
+				<ul class="d-flex justify-content-between align-items-center px-4 pt-1">
+					<li class="nav-link">
+						<a href="" class="d-flex flex-column align-items-center">
+							<i class="fa fa-home fs-4"></i>
+							<span class="fs-7">Home</span>
+						</a>
+					</li>
+					<li class="nav-link">
+						<a href="" class="d-flex flex-column align-items-center">
+							<i class="fa fa-message fs-4"></i>
+							<span class="fs-7">Messenger</span>
+						</a>
+					</li>
+					<li class="nav-link">
+						<a href="/cart" class="d-flex flex-column align-items-center">
+							<i class="fa fa-shopping-cart fs-4"></i>
+							<span class="fs-7">Cart</span>
+						</a>
+					</li>
+					<li class="nav-link">
+						<a href="" class="d-flex flex-column align-items-center">
+							<i class="fa fa-user-alt fs-4"></i>
+							<span class="fs-7">MyWeb</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="container px-lg-0 px-sm-3 mt-lg-5 mt-4">
+				<div class="d-flex justify-content-between">
+					<div class="dropdown dropdown-hover position-static">
+						<a
+							data-mdb-dropdown-init
+							class="nav-link dropdown-toggle mb-4"
+							href="#"
+							id="navbarDropdown"
+							role="button"
+							data-mdb-toggle="dropdown"
+							aria-expanded="false">
+							Province/Region
+						</a>
+
+						<!-- Dropdown menu -->
+						<div
+							class="dropdown-menu mt-0 shadow"
+							aria-labelledby="navbarDropdown"
+							style="border-top-left-radius: 0; border-top-right-radius: 0">
+							<form class="container py-4 px-5" action="" method="">
+								<div
+									class="d-flex flex-column align-items-start"
+									style="width: 300px">
+									<div class="select-language py-2 w-100">
+										<label for="language" class="mb-2">Province</label>
+										<select name="lang" id="lang" class="custom-select-option">
+											<option value="" selected>Province</option>
+											<option value="">Kabul</option>
+											<option value="">Herat</option>
+											<option value="">Mazar</option>
+										</select>
+									</div>
+									<button class="btn btn-primary mt-3 fw-bold">Save</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="dropdown dropdown-hover position-static">
+						<a
+							data-mdb-dropdown-init
+							class="nav-link dropdown-toggle mb-4"
+							href="#"
+							id="navbarDropdown"
+							role="button"
+							data-mdb-toggle="dropdown"
+							aria-expanded="false">
+							Language/Currency <i class="fa fa-globe"></i>
+						</a>
+
+						<!-- Dropdown menu -->
+						<div
+							class="dropdown-menu mt-0 shadow"
+							aria-labelledby="navbarDropdown"
+							style="border-top-left-radius: 0; border-top-right-radius: 0">
+							<form class="container py-4 px-5" action="" method="">
+								<div
+									class="d-flex flex-column align-items-start"
+									style="width: 300px">
+									<div class="select-language py-2 w-100">
+										<label for="language" class="mb-2">Language</label>
+										<select name="lang" id="lang" class="custom-select-option">
+											<option value="" selected>Language</option>
+											<option value="">Dari</option>
+											<option value="">Pashto</option>
+											<option value="">English</option>
+										</select>
+									</div>
+									<div class="select-currency py-2 w-100">
+										<label for="currency" class="mb-2">Currency</label>
+										<select
+											name="currency"
+											id="currency"
+											class="custom-select-option">
+											<option value="" selected>Currency</option>
+											<option></option>
+											<option value="">AFN</option>
+											<option value="">USD</option>
+											<option value="">EUR</option>
+										</select>
+									</div>
+									<button class="btn btn-primary mt-3 fw-bold">Save</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-outline" data-mdb-input-init>
+					<input
+						type="search"
+						id="typeText"
+						class="form-control py-2 px-4 rounded-circle"
+						placeholder="Search products, categories, objects ..." />
+				</div>
+			</div>
+			<!-- Navbar -->
+		</header>
+	</body>
+</html>

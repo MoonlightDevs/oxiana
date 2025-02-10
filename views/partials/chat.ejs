@@ -1,0 +1,211 @@
+<div class="d-flex justify-content-start my-4">
+	<div class="btn-group" role="group" aria-label="Contact Buttons">
+		<button
+			type="button"
+			class="btn btn-primary"
+			data-mdb-modal-init
+			data-mdb-toggle="modal"
+			data-mdb-target="#emailModal">
+			<i class="fas fa-envelope me-2"></i
+			><span class="d-none d-md-inline">Contact with</span> Email
+		</button>
+		<button
+			type="button"
+			class="btn btn-success"
+			data-mdb-toggle="modal"
+			data-mdb-modal-init
+			data-mdb-target="#whatsappModal">
+			<i class="fab fa-whatsapp me-2"></i
+			><span class="d-none d-md-inline">Contact with</span> WhatsApp
+		</button>
+		<button
+			type="button"
+			class="btn btn-info"
+			data-mdb-modal-init
+			data-mdb-toggle="modal"
+			data-mdb-target="#telegramModal">
+			<i class="fab fa-telegram-plane me-2"></i
+			><span class="d-none d-md-inline">Contact with</span> Telegram
+		</button>
+	</div>
+</div>
+<div
+	class="modal fade"
+	id="emailModal"
+	tabindex="-1"
+	aria-labelledby="emailModalLabel"
+	aria-hidden="true">
+	<div
+		class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="emailModalLabel">Contact with Email</h5>
+				<button
+					type="button"
+					class="btn-close"
+					data-mdb-dismiss="modal"
+					aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p>Send email here or scan the QR Code to send your email:</p>
+				<form class="px-3 px-lg-5" style="width: 100%">
+					<div data-mdb-input-init class="form-outline mb-4">
+						<input type="text" id="form4Example1" class="form-control" />
+						<label class="form-label" for="form4Example1">Your Name</label>
+					</div>
+					<div data-mdb-input-init class="form-outline mb-4">
+						<input type="email" id="form4Example2" class="form-control" />
+						<label class="form-label" for="form4Example2"
+							>Your Email address</label
+						>
+					</div>
+					<div data-mdb-input-init class="form-outline mb-4">
+						<textarea
+							class="form-control"
+							id="form4Example3"
+							rows="4"></textarea>
+						<label class="form-label" for="form4Example3">Your Message</label>
+					</div>
+					<button
+						data-mdb-ripple-init
+						type="button"
+						class="btn btn-primary btn-block mb-4">
+						Send
+					</button>
+				</form>
+				<div class="d-flex flex-column justify-content-center">
+					<span>or scan: </span>
+					<img
+						style="max-width: 200px; width: 100%"
+						class="img-fluid"
+						loading="lazy"
+						src="/images/qrcodes/qrcodeEmail.png"
+						alt="" />
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button
+					type="button"
+					class="btn btn-secondary"
+					data-mdb-dismiss="modal">
+					Close
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div
+	class="modal fade"
+	id="whatsappModal"
+	tabindex="-1"
+	aria-labelledby="whatsappModalLabel"
+	aria-hidden="true">
+	<div
+		class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="whatsappModalLabel">
+					Contact with WhatsApp
+				</h5>
+				<button
+					type="button"
+					class="btn-close"
+					data-mdb-dismiss="modal"
+					aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p>
+					Scan the following code or click the Open WhatsApp button to contact
+					supplier of this product:
+				</p>
+				<div style="text-align: center; margin-bottom: 20px">
+					<img
+						src="/images/qrcodes/qrcode.png"
+						loading="lazy"
+						alt="QR Code for WhatsApp"
+						style="max-width: 200px; width: 100%" />
+				</div>
+				<div style="text-align: center">
+					<a
+						href="whatsapp://send?phone=+93745216956"
+						class="btn btn-success"
+						style="
+							padding: 10px 30px;
+							text-decoration: none;
+							color: #fff;
+							background-color: #25d366;
+							border-radius: 5px;
+						">
+						Open WhatsApp
+					</a>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button
+					type="button"
+					class="btn btn-secondary"
+					data-mdb-dismiss="modal">
+					Close
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div
+	class="modal fade"
+	id="telegramModal"
+	tabindex="-1"
+	aria-labelledby="telegramModalLabel"
+	aria-hidden="true">
+	<div
+		class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="telegramModalLabel">
+					Contact with Telegram
+				</h5>
+				<button
+					type="button"
+					class="btn-close"
+					data-mdb-dismiss="modal"
+					aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="modal-body">
+					<p>
+						Scan the following code or click the Open Telegram button to contact us:
+					</p>
+					<div style="text-align: center; margin-bottom: 20px">
+						<img
+							src="/images/qrcodes/qrcodeTelegram.png"
+							loading="lazy"
+							alt="QR Code for Telegram"
+							style="max-width: 200px; width: 100%" />
+					</div>
+					<div style="text-align: center">
+						<a
+							href="tg://resolve?domain=Abosmani24"
+							class="btn btn-primary"
+							style="
+								padding: 10px 20px;
+								text-decoration: none;
+								color: #fff;
+								background-color: #0088cc;
+								border-radius: 5px;
+							">
+							Open Telegram
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button
+					type="button"
+					class="btn btn-secondary"
+					data-mdb-dismiss="modal">
+					Close
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

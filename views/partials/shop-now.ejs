@@ -1,0 +1,18 @@
+<section class="container-fluid px-0 py-5">
+	<div class="d-flex justify-content-between align-items-center">
+		<h4 class="d-none d-md-block text-truncate m-0"><%= heading %></h4>
+		<a href="/categories" class="btn btn-outline-primary rounded-9"
+			>View all <i class="fas fa-arrow-right-long ms-1"></i
+		></a>
+	</div>
+	<hr />
+	<div
+		style="scroll-behavior: auto"
+		class="d-flex justify-content-start gap-3 overflow-x-scroll pb-3 mt-5">
+		<%for(let i = 0; i < products.length; i++) {%>
+		<div class="col-6 col-lg-2">
+			<%- include("./productCard", {product:products[i]}) %>
+		</div>
+		<%} %>
+	</div>
+</section>

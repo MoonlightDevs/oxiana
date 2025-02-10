@@ -1,0 +1,60 @@
+<div class="custom-offcanvas" id="customOffcanvas">
+	<div class="custom-offcanvas-header">
+		<div class="logo">Oxiana</div>
+		<button
+			id="customCloseOffcanvas"
+			class="btn btn-secondary btn-sm btn-floating">
+			<i class="fas fa-close fs-6"></i>
+		</button>
+	</div>
+	<hr />
+	<div class="custom-offcanvas-body">
+		<nav class="bg-light w-100">
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item border-0 p-2">
+					<a
+						href="#"
+						class="d-flex align-items-center text-dark text-decoration-none w-100 py-2 px-3"><i class="fa fa-box fs-5 me-2"></i> Manage Orders</a>
+				</li>
+				<li class="list-group-item border-0 p-2">
+					<a
+						href="#"
+						class="d-flex align-items-center text-dark text-decoration-none w-100 py-2 px-3"><i class="fa fa-message fs-5 me-2"></i> Messenger</a>
+				</li>
+				<li
+					class="list-group-item border-0 p-2 d-flex align-items-center justify-content-between">
+					<a
+						href="#"
+						class="d-flex align-items-center text-dark text-decoration-none w-100 py-2 px-3">
+						<i class="fa fa-shopping-cart fs-5 me-2"></i> Shopping Cart
+						<span class="badge rounded-pill bg-danger ms-5 cartLengthHeader"
+							><%= navbarCart.items && navbarCart.items.length > 0 ?
+							navbarCart.items.length : '' %></span
+						>
+					</a>
+				</li>
+				<li class="list-group-item border-0 p-2">
+					<a
+						href="#"
+						class="d-flex align-items-center text-dark text-decoration-none w-100 py-2 px-3"><i class="fa fa-heart fs-5 me-2"></i> My Favorites</a>
+				</li>
+				<li class="list-group-item border-0 p-2">
+					<a
+						href="#"
+						class="d-flex align-items-center text-dark text-decoration-none w-100 py-2 px-3"><i class="fa fa-tags fs-5 me-2"></i> How to Sell on Oxiana</a>
+				</li>
+				<li class="list-group-item border-0 p-2">
+					<a
+						href="#"
+						class="d-flex align-items-center text-dark text-decoration-none w-100 py-2 px-3"><i class="fa fa-question-circle fs-5 me-2"></i> Help Center</a>
+				</li>
+				<li class="list-group-item border-0 p-2">
+					<a
+						href="#"
+						class="d-flex align-items-center text-dark text-decoration-none w-100 py-2 px-3"><i class="fa fa-cog fs-5 me-2"></i> Settings</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<div class="custom-overlay" id="customOverlay"></div>

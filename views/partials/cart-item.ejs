@@ -1,0 +1,86 @@
+<div class="row position-relative">
+	<div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+		<div
+			class="bg-image hover-overlay hover-zoom ripple rounded"
+			data-mdb-ripple-color="light">
+			<img
+				src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
+				class="w-100"
+				loading="lazy"
+				alt="Blue Jeans Jacket" />
+			<a href="#!">
+				<div
+					class="mask"
+					style="background-color: rgba(251, 251, 251, 0.2)"></div>
+			</a>
+		</div>
+		<div class="d-flex flex-column gap-1 mt-1">
+			<span class="mt-1 text-muted"
+				>Added on: <%= new Date( item.createdAt).toLocaleDateString("en-GB", {
+				day: "numeric", month: "short", year: "numeric", }); %></span
+			>
+			<a
+				href="/products/<%= item.product.name %>/<%= item.product.category.name %>/<%= item.product._id%>"
+				>Details</a
+			>
+		</div>
+	</div>
+	<div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+		<h4>
+			<strong><%= item.product.name %></strong>
+		</h4>
+		<p class="m-0">
+			<strong>Description</strong>: <%= item.product.description %>
+		</p>
+		<div class="my-3 fs-6">
+			<p class="m-0">
+				<label for="productPrice"><strong>Price:</strong></label>
+				<span
+					id="productPrice"
+					data-base-price="<%= item.product.price %>"
+					class="productPriceEveryWhere text-danger fw-bold"
+					><%= item.product.price.toFixed(2) %>AFN</span
+				>
+			</p>
+			<p class="m-0">
+				<label for="productTotalPrice"><strong>Total Price:</strong></label>
+				<span
+					id="productTotalPrice"
+					class="productPriceEveryWhere text-danger fw-bold productTotalPrice"
+					><%=item.total.toFixed(2) %>AFN</span>
+			</p>
+		</div>
+		<form action="http://localhost:3000/cart" method="post">
+			<input type="hidden" name="itemId" value="<%= item._id %>" />
+			<div class="d-flex mb-4" style="max-width: 300px">
+				<button
+					data-mdb-button-init
+					data-mdb-ripple-init
+					class="btn btn-primary px-3 me-2 decrement"
+					onclick="updateQuantity('<%= item._id %>', -1, this)">
+					<i class="fas fa-minus"></i>
+				</button>
+				<div>
+					<label for="itemQuantity">Quantity:</label>
+					<span id="itemQuantity" class="p-1 quantity fs-5 fw-bold"><%= item.quantity %></span>
+				</div>
+				<button
+					data-mdb-button-init
+					data-mdb-ripple-init
+					class="btn btn-primary px-3 ms-2 increment"
+					onclick="updateQuantity('<%= item._id %>', 1, this)">
+					<i class="fas fa-plus"></i>
+				</button>
+			</div>
+		</form>
+		<form method="post">
+			<input type="hidden" name="itemId" value="<%= item._id %>" />
+			<button
+				type="submit"
+				class="btn btn-danger btn-sm me-1 mb-2 position-absolute top-0 end-0 mt-3 me-4 delete-item-button">
+				<i class="fas fa-trash"></i>
+			</button>
+		</form>
+	</div>
+	<hr class="my-4" />
+</div>

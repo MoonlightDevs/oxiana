@@ -1,0 +1,78 @@
+<nav class="mt-5">
+	<hr>
+	<ul class="pagination">
+		<li class="page-item <%= currentPagination === 1 ? 'disabled' : '' %>">
+			<a
+				class="page-link bg-secondary-subtle"
+				href="javascript:void(0)"
+				onclick="navigatePage(<%= currentPagination - 1 %>)">Previous</a>
+		</li>
+		<% if (totalPages <= 7) { %> <% for (let i = 1; i <= totalPages; i++) { %>
+			<li class="page-item">
+				<a
+					class="page-link <%= i === currentPagination ? 'text-white bg-primary' : '' %>"
+					href="javascript:void(0)"
+					onclick="navigatePage(<%= i %>)">
+					<%= i %>
+				</a>
+			</li>
+		<% } %> <% } else { %>
+			<li class="page-item">
+				<a
+					class="page-link <%= currentPagination === 1 ? 'text-white bg-primary' : '' %>"
+					href="javascript:void(0)"
+					onclick="navigatePage(1)"
+					>1</a
+				>
+			</li>
+
+		<% if (currentPagination > 4) { %>
+			<li class="page-item disabled"><span class="page-link">...</span></li>
+		<% } %> 
+		<% if (currentPagination <= 4) 
+			{ startPage = 2; endPage = 4; } 
+		else if (currentPagination >= totalPages - 3) { startPage = totalPages - 3;
+			endPage = totalPages - 1; } else { startPage = currentPagination - 1;
+			endPage = currentPagination + 1; } 
+		for (let i = startPage; i <= endPage; i++) { %>
+			<li class="page-item">
+				<a
+					class="page-link <%= i === currentPagination ? 'text-white bg-primary' : '' %>"
+					href="javascript:void(0)"
+					onclick="navigatePage(<%= i %>)">
+					<%= i %>
+				</a>
+			</li>
+		<% } %> <% if (currentPagination < totalPages - 3) { %>
+		<li class="page-item disabled"><span class="page-link">...</span></li>
+		<% } %>
+		<li class="page-item">
+			<a
+				class="page-link <%= currentPagination === totalPages ? 'text-white bg-primary' : '' %>"
+				href="javascript:void(0)"
+				onclick="navigatePage(<%= totalPages %>)">
+				<%= totalPages %>
+			</a>
+		</li>
+		<% } %>
+		<li
+			class="page-item <%= currentPagination === totalPages ? 'disabled' : '' %>">
+			<a
+				class="page-link bg-secondary-subtle"
+				href="javascript:void(0)"
+				onclick="navigatePage(<%= currentPagination + 1 %>)"
+				>Next</i></a
+			>
+		</li>
+	</ul>
+</nav>
+<script>
+	function navigatePage(pageNumber) {
+		const currentURL = window.location.href;
+		const url = new URL(currentURL);
+		const params = new URLSearchParams(url.search);
+		params.delete("page");
+		params.set("page", pageNumber);
+		window.location.href = url.pathname + "?" + params.toString();
+	}
+</script>

@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center flex-column">
+	<div>
+		<span
+			id="productPriceLocal"
+			class="productPriceEveryWhere text-primary fw-bold"
+			data-base-price="<%= product.price %>">
+			<%= product.price.toFixed(2) %> AFN
+		</span>
+	</div>
+
+	<div class="d-flex align-items-center flex-column mt-4 gap-2">
+		<input type="hidden" value="<%= product._id %>" name="productId" />
+
+		<button
+			type="button"
+			class="btn btn-primary btn-sm add-to-cart-btn fw-bold col-12 p-2"
+			data-product-id="<%= product._id %>"
+			onclick="animateCardToCart('<%= product._id %>')">
+			Add to Cart
+		</button>
+
+		<button
+			data-mdb-button-init
+			data-mdb-ripple-init
+			onclick="window.location.href='/products/<%= product.category.name %>/<%= product.name %>/<%= product._id %>'"
+			class="btn btn-outline-primary btn-sm fw-bold col-12 p-2"
+			type="button">
+			Details
+		</button>
+	</div>
+</div>

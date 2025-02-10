@@ -1,0 +1,53 @@
+<div
+	style="font-size: 14px"
+	id="product-card-<%= product._id %>"
+	class="product-card shadow-1-strong rounded-9">
+	<div class="position-relative">
+		<img
+			src="<%= product.images.length > 0 ? product.images[0] : 'https://via.placeholder.com/300' %>"
+			class="img-fluid"
+			loading="lazy"
+			alt="" />
+	</div>
+	<div class="p-2">
+		<h5 id="productNameLocal" class="fs-12"><%= product.name %></h5>
+		<div class="d-flex flex-row">
+			<div>
+				<% for (let i = 1; i <= 5; i++) { %> <% if (i <= product.averageRating)
+				{ %>
+				<i class="fas fa-star text-warning"></i>
+				<% } else { %>
+				<i class="far fa-star text-muted"></i>
+				<% } %> <% } %>
+			</div>
+		</div>
+		<div class="d-flex justify-content-center flex-column">
+			<div>
+				<span
+					id="productPriceLocal"
+					class="productPriceEveryWhere text-primary fw-bold"
+					data-base-price="<%= product.price %>">
+					<%= product.price.toFixed(2) %> AFN
+				</span>
+			</div>
+			<div class="d-flex justify-content-between align-items-center mt-2">
+				<input type="hidden" value="<%= product._id %>" name="productId" />
+				<button
+					type="button"
+					class="btn btn-secondary btn-floating add-to-cart-btn"
+					data-product-id="<%= product._id %>"
+					onclick="animateCardToCart('<%= product._id %>')">
+					<i class="fas fa-cart-plus fs-5"></i>
+				</button>
+				<button
+					data-mdb-button-init
+					data-mdb-ripple-init
+					onclick="window.location.href='/products/<%= product.name %>/<%= product.category.name %>/<%= product._id %>'"
+					class="btn btn-secondary rounded-9"
+					type="button">
+					See options
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

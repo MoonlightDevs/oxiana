@@ -1,0 +1,13 @@
+<img
+	src="<%= product.images.length > 0 ? product.images[0].url : 'Default product image' %>"
+	class="img-fluid"
+	alt="<%= product.images.length > 0 ? product.images[0].altText : 'Default product image' %>"
+	id="productMainImageLocal" />
+
+<button
+	type="button"
+	class="btn btn-primary btn-sm add-to-cart-btn fw-bold"
+	data-product-id="<%= product._id %>"
+	onclick="animateCardToCart('<%= product._id %>')">
+	Add to Cart
+</button>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title><%= title %></title>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback" />
+		<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css" />
+		<link
+			rel="stylesheet"
+			href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+		<link rel="stylesheet" href="/dist/css/adminlte.min.css" />
+		<style>
+			.input-box {
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				font-size: 24px;
+				margin: 5px;
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" style="max-width: 400px; margin-top: 100px">
+			<h3>Please enter the verification code sent to your email</h3>
+			<!-- Display error message if it exists -->
+			<% if (errorMessage && errorMessage.length > 0) { %>
+			<div class="w-100 alert alert-danger alert-dismissible">
+				<button
+					type="button"
+					class="close text-black"
+					data-dismiss="alert"
+					aria-hidden="true">
+					×
+				</button>
+				<h5><i class="icon fas fa-ban"></i> Message!</h5>
+				<%= errorMessage %>
+			</div>
+			<% } %>
+			<form action="/auth/verify-email" method="POST">
+				<input type="hidden" name="email" value="<%= email %>" />
+				<div class="form-group">
+					<div class="d-flex justify-content-center">
+						<% for (let i = 1; i <= 6; i++) { %>
+						<input
+							type="text"
+							name="verificationCode"
+							class="input-box"
+							maxlength="1"
+							id="input-<%= i %>"
+							required />
+						<% } %>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary btn-block">Verify</button>
+			</form>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+		<script>
+			// Automatically move focus to next input when a number is entered
+			const inputs = document.querySelectorAll(".input-box");
+
+			inputs.forEach((input, index) => {
+				input.addEventListener("input", (e) => {
+					// If a character is typed, move to the next input
+					if (e.target.value.length === 1 && index < inputs.length - 1) {
+						inputs[index + 1].focus();
+					}
+
+					// If backspace is pressed, move focus to previous input
+					if (e.inputType === "deleteContentBackward" && index > 0) {
+						inputs[index - 1].focus();
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

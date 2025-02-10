@@ -1,0 +1,119 @@
+<div class="accordion" id="accordionExampleY">
+	<div class="accordion-item rounded-0">
+		<h2 class="accordion-header bg-white" id="headingOneY">
+			<button
+				data-mdb-collapse-init
+				class="accordion-button rounded-0"
+				type="button"
+				data-mdb-target="#collapseOneY"
+				aria-expanded="true"
+				aria-controls="collapseOneY">
+				<i class="fas fa-filter me-2"></i> Filters
+			</button>
+		</h2>
+		<div
+			id="collapseOneY"
+			class="accordion-collapse collapse rounded-0"
+			aria-labelledby="headingOneY"
+			data-mdb-parent="#accordionExampleY">
+			<div class="accordion-body border-bottom rounded-0">
+				<form action="/products">
+					<div
+						class="d-flex justify-content-start align-items-center flex-wrap gap-3">
+						<div class="col-12">
+							<label for="price-range">Price Range</label>
+							<div id="price-range" class="range-container position-relative">
+								<input
+									type="range"
+									class="form-range"
+									name="priceMin"
+									id="minRange"
+									min="0"
+									max="1000"
+									value="100"
+									step="10"
+									oninput="updatePriceRange()" />
+								<input
+									type="range"
+									class="form-range"
+									name="priceMax"
+									id="maxRange"
+									min="0"
+									max="1000"
+									value="500"
+									step="10"
+									oninput="updatePriceRange()" />
+								<div class="d-flex justify-content-between mt-3">
+									<span class="fs-6 text-muted" id="minPriceLabel">$100</span>
+									<span class="fs-6 text-muted" id="maxPriceLabel">$500</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-5 col-lg-3">
+							<label for="category">Categories</label>
+							<select class="form-select fs-14" name="category" id="category">
+								<option value="" disabled selected>Select a category</option>
+								<option value="electronics">Electronics</option>
+								<option value="clothing">Clothing</option>
+								<option value="accessories">Accessories</option>
+								<option value="footwear">Footwear</option>
+								<option value="home-appliances">Home Appliances</option>
+							</select>
+						</div>
+						<div class="col-5 col-lg-3">
+							<label for="rating">Rating</label>
+							<select class="form-select fs-14" name="rating" id="rating">
+								<option value="" disabled selected>Select a rating</option>
+								<option value="4">i & above</option>
+								<option value="3">3 & above</option>
+								<option value="2">2 & above</option>
+								<option value="1">1 & above</option>
+							</select>
+						</div>
+						<div class="col-5 col-lg-3">
+							<label for="type">Sort by:</label>
+							<select class="form-select fs-14" id="type">
+								<option value="newest">Newest</option>
+								<option value="oldest">Oldest</option>
+								<option value="popular">Most Popular</option>
+								<option value="rating">Highest Rated</option>
+							</select>
+						</div>
+						<div class="col-5 col-lg-3">
+							<label for="brands">Brands</label>
+							<select class="form-select fs-14" name="brands" id="brands">
+								<option value="" disabled selected>Select a brand</option>
+								<option value="brand1">Brand A</option>
+								<option value="brand2">Brand B</option>
+								<option value="brand3">Brand C</option>
+							</select>
+						</div>
+						<div class="col-5 col-lg-3">
+							<label for="availability">Availability</label>
+							<select
+								class="form-select fs-14"
+								name="availability"
+								id="availability">
+								<option value="" disabled selected>Select availability</option>
+								<option value="inStock">In Stock</option>
+								<option value="preOrder">Pre-order</option>
+							</select>
+						</div>
+						<div class="col-5 col-lg-3">
+							<label for="discount">Discount</label>
+							<select class="form-select fs-14" name="discount" id="discount">
+								<option value="" disabled selected>Select discount</option>
+								<option value="50">50% & above</option>
+								<option value="30">30% & above</option>
+								<option value="10">10% & above</option>
+							</select>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary fw-bold mt-3">
+						Apply Filters
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

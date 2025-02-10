@@ -1,0 +1,11 @@
+<%- include('../partials/header'), { pageTitle: pageTitle, user:user} %> <%-
+include("../partials/carousel") %> <%- include("../partials/features") %> <%-
+include("../partials/categories") %>
+<div class="px-3">
+	<%- include("../partials/shop-now", {products:products, heading: "Trending this Week"}) %>
+</div>
+<%- include("../partials/categories") %>
+<div class="px-3">
+	<%- include("../partials/shop-now", {products:products, heading:"New Arrivals"}) %>
+</div>
+<%- include("../partials/testimonials") %> <%- include('../partials/footer') %>

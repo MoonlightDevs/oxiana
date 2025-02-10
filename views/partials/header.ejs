@@ -1,0 +1,119 @@
+<%- include('./head') %> <%- include('./sidebar') %> <%-
+include("./topHomePage") %>
+<header class="sticky-top" style="font-size: 14px">
+	<div class="container-fluid py-2 text-center bg-white border-bottom">
+		<div class="row px-3">
+			<div class="col-md-3 d-flex justify-content-between justify-content-md-start mb-3 mb-md-0 align-items-center gap-3 px-0">
+				<a class="navbar-brand" href="#">
+					<div class="logo">Oxiana</div>
+				</a>
+				<div class="d-flex align-items-center gap-3">
+					<%- include("../partials/rightNavbar", {screenSmall: true}) %>
+					<a
+						class="custom-trigger-button"
+						id="customOpenOffcanvas"
+						style="cursor: pointer">
+						<i class="fas fa-bars fs-5 mt-1 text-dark"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-6 position-relative p-0">
+				<form
+					class="d-flex input-group w-100 my-auto mb-3 mb-md-0 position-relative"
+					action="/products"
+					id="searchForm">
+					<input
+						autocomplete="off"
+						name="query"
+						type="search"
+						class="form-control rounded border-1 bg-secondary-subtle fs-14"
+						placeholder="Search for products, categories or brands..."
+						id="searchInput" />
+					<span class="position-absolute end-0">
+						<i class="d-none d-md-block fas fa-search text-muted fs-5 me-3" style="margin-top: 30%"></i>
+					</span>
+				</form>
+				<div id="autocompleteResults" class="col-md-12 p-3 autocomplete-results d-none"></div>
+			</div>
+			<div id="overlayer"></div>
+			<%- include("../partials/rightNavbar", {screenSmall: false}) %>
+		</div>
+	</div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-white my-nav d-flex justify-content-center px-0 px-lg-2 justify-content-lg-start">
+			<ul class="navbar-nav d-flex gap-3 flex-row">
+				<li class="nav-item fs-12">
+					<a class="nav-link <%= currentPage === "homepage" ? "text-primary" : "" %> rounded-4" href="/">Home</a>
+				</li>
+				<li class="nav-item fs-12">
+					<a class="nav-link <%= currentPage === "products" ? "text-primary" : "" %> rounded-4" href="/products?page=1">Shop</a>
+				</li>
+				<li class="nav-item fs-12">
+					<a class="nav-link <%= currentPage === "blog" ? "text-primary" : "" %> rounded-4" href="/blog">Blog</a
+					>
+				</li>
+				<li class="nav-item fs-12">
+					<a class="nav-link <%= currentPage === "contact" ? "text-primary" : "" %> rounded-4" href="/contact">Contact</a>
+				</li>
+				<li class="nav-item fs-12">
+					<a class="nav-link <%= currentPage === "help" ? "text-primary" : "" %> rounded-4" href="/help-center">Help</a>
+				</li>
+				<li class="nav-item fs-12">
+					<a
+						data-mdb-dropdown-init
+						class="nav-link dropdown-toggle hidden-arrow "
+						href="#"
+						id="navbarDropdown"
+						role="button"
+						data-mdb-toggle="dropdown"
+						aria-expanded="false">
+						<span>Categories</span>
+						<i class="fas fa-chevron-down me-1"></i>
+					</a>
+					<div
+						class="dropdown-menu col-8 col-lg-3 overflow-y-scroll mt-0"
+						aria-labelledby="navbarDropdown"
+						style="
+							border-top-left-radius: 0;
+							border-top-right-radius: 0;
+							height: 380px;
+						">
+						<div class="container">
+							<div class="row my-4 categories"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+	</nav>
+	<% if(currentPage === "products") {%>
+		<%-include("../partials/productsFilters") %> <% } %>
+		<nav
+			class="container-fluid navbar fixed-bottom bg-body-secondary shadow-1-strong d-block d-lg-none bottom-0">
+			<ul class="d-flex justify-content-between align-items-center m-0 px-4 pt-1">
+				<li class="nav-link">
+					<a href="" class="d-flex flex-column align-items-center text-dark">
+						<i class="fas fa-home fs-5 <%= currentPage === "homepage" ? "text-primary" : "" %> "></i>
+						<span class="fs-7 ">Home</span>
+					</a>
+				</li>
+				<li class="nav-link">
+					<a href="" class="d-flex flex-column align-items-center text-dark">
+						<i class="fas fa-message fs-5 <%= currentPage === "products" ? "text-primary" : "" %> "></i>
+						<span class="fs-7">Shop</span>
+					</a>
+				</li>
+				<li class="nav-link">
+					<a href="/cart" class="d-flex flex-column align-items-center text-dark">
+						<i class="fas fa-shopping-cart fs-5 <%= currentPage === "cart" ? "text-primary" : "" %> "></i>
+
+						<span class="fs-7">Cart</span>
+					</a>
+				</li>
+				<li class="nav-link">
+					<a href="" class="d-flex flex-column align-items-center text-dark">
+						<i class="fas fa-user-alt fs-5 <%= currentPage === "account" ? "text-primary" : "" %> "></i>
+						<span class="fs-7">Oxiana</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+</header>
