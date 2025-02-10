@@ -1,4 +1,4 @@
-import { API_URL } from "../config.js";
+const API_URL = "https://oxiana-backend.onrender.com";
 
 document.addEventListener("DOMContentLoaded", () => {
 	// Function to update the quantity of an item in the cart
