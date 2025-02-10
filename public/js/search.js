@@ -1,4 +1,4 @@
-import { API_URL } from "./config.js";
+const API_URL = "https://oxiana-backend.onrender.com";
 
 document.addEventListener("DOMContentLoaded", () => {
 	const searchInput = document.getElementById("searchInput");
